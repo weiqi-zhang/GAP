@@ -64,13 +64,9 @@ In this work, we present GAP, a novel method for converting raw, colorless 3D po
 
 ## Visualization Results
 
-### Text Guided Generation
-
 <img src="./figs/text.gif" class="center">
 
-### Point to Gaussian
 
-<img src="./figs/point.gif" class="center">
 
 ## Citation
 
