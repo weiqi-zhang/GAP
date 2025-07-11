@@ -27,7 +27,7 @@ We will release the code of the paper <a href="https://weiqi-zhang.github.io/GAP
 ## Abstract
 
 <p>
-In this work, we present GAP, a novel method for converting raw, colorless 3D point clouds into high-quality Gaussian representations with text guidance. While 3D Gaussian Splatting (3DGS) has shown impressive rendering quality, bridging the gap from sparse point clouds—especially without color—remains a challenge. GAP performs well across various scenarios, from synthetic data to real-world scans and large-scale scenes, offering a reliable solution for point-to-Gaussian generation.
+In this work, we introduce GAP, a novel method for transforming raw, colorless 3D point clouds into high-quality Gaussian representations guided by text. Although 3D Gaussian Splatting (3DGS) has demonstrated impressive rendering capabilities, it remains challenging to convert sparse and uncolored point clouds into meaningful Gaussian forms. GAP effectively addresses this issue, performing robustly across a wide range of scenarios, including synthetic datasets, real-world scans, and large-scale scenes. It provides a reliable and versatile solution for point-to-Gaussian conversion.
           </p>
 
 
