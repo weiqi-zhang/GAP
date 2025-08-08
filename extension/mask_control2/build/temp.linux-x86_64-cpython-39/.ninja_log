@@ -1,0 +1,5 @@
+# ninja log v5
+1	13363	1733752459	/data/zhangweiqi/my_Text2Tex/mask_control2/build/temp.linux-x86_64-cpython-39/wake_up.o	1600650ff1b0f2ff
+0	42908	1733752489	/data/zhangweiqi/my_Text2Tex/mask_control2/build/temp.linux-x86_64-cpython-39/render2.o	863bc7021c91ec4a
+13	13557	1733753191	/data/zhangweiqi/my_Text2Tex/mask_control2/build/temp.linux-x86_64-cpython-39/wake_up.o	7f03a452efc37b8c
+13	44295	1733753222	/data/zhangweiqi/my_Text2Tex/mask_control2/build/temp.linux-x86_64-cpython-39/render2.o	daf8056fd5dc9998

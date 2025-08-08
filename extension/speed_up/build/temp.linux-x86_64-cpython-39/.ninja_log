@@ -1,0 +1,5 @@
+# ninja log v5
+0	12186	1730433574	/data/zhangweiqi/my_Text2Tex/speed_up/build/temp.linux-x86_64-cpython-39/wake_up.o	416fbb82a21df9dc
+0	43180	1730433605	/data/zhangweiqi/my_Text2Tex/speed_up/build/temp.linux-x86_64-cpython-39/render.o	50970f94fb48e3b5
+12	47451	1730433937	/data/zhangweiqi/my_Text2Tex/speed_up/build/temp.linux-x86_64-cpython-39/render.o	50970f94fb48e3b5
+76	72977	1731759846	/data/zhangweiqi/my_Text2Tex/speed_up/build/temp.linux-x86_64-cpython-39/render.o	50970f94fb48e3b5

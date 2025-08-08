@@ -20,10 +20,6 @@
     <img src="figs/teaser.png" width="780" />
 </p>
 
-
-
-We will release the code of the paper <a href="https://weiqi-zhang.github.io/GAP/">GAP: Gaussianize Any Point Clouds with Text Guidance</a> in this repository.
-
 ## Abstract
 
 <p>
@@ -39,11 +35,6 @@ In this work, we introduce GAP, a novel method for transforming raw, colorless 3
 <p style="margin-top: 30px">
 <strong>Overview of GAP.</strong>
             <strong>(a)</strong> We rasterize the Gaussians through an unprocessed view, where a depth-aware image diffusion model is used to generate consistent appearances using the rendered depth and mask with text guidance. The mask is dynamically classified as generate, keep, or update based on viewing conditions. <strong>(b)</strong> The Gaussian optimization includes three constraints: the Distance Loss and Scale Loss introduced to ensure geometric accuracy, and the Rendering Loss that ensures high-quality appearance. <strong>(c)</strong> The Gaussian inpainting strategy which diffuses the geometric and appearance information from visible regions to hard-to-observe areas, considering local density, spatial proximity and normal consistency.
-
-
-
-
-
 ## Generation Results
 
 ### Visual Comparison of Text-Guided Generation
@@ -65,6 +56,110 @@ In this work, we introduce GAP, a novel method for transforming raw, colorless 3
 ## Visualization Results
 
 <img src="./figs/text.gif" class="center">
+
+
+## Setup
+
+1. **Create a conda environment with Python 3.9:**
+
+```bash
+conda create -n gap python=3.9
+conda activate gap
+```
+
+2. **Install PyTorch with CUDA support:**
+
+```bash
+pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116
+```
+
+3. **Install other Python dependencies:**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Model Download**
+
+To use the ControlNet Depth2img model, please download `control_sd15_depth.pth` from the [hugging face page](https://huggingface.co/lllyasviel/ControlNet/tree/main/models), and put it under `models/ControlNet/models/`. And, please download `dpt_hybrid-midas-501f0c75.pt` from the [hugging face page](https://huggingface.co/lllyasviel/Annotators/blob/main/dpt_hybrid-midas-501f0c75.pt), and put it under `models/ControlNet/annotator/ckpts`.
+
+
+
+## Usage
+
+### Data Preparation
+
+GAP supports point cloud files in the following formats:
+- `.ply` files with xyz coordinates
+- `.xyz` files with plain text coordinates
+- `.npy` files with numpy arrays
+
+Your input directory should be organized as:
+```
+data/
+├── your_object/
+│   └── your_object.ply  # Point cloud file
+└── another_object/
+    └── another_object.ply
+```
+
+### Basic Usage
+
+#### Quick Start
+
+Run one of the provided example scripts:
+
+```bash
+bash bash/backpack.sh
+```
+
+#### Custom Generation
+
+For your own point cloud data, run the main script with custom parameters:
+
+```bash
+python scripts/generate_gaussian_text.py \
+    --input_dir data/your_object \
+    --output_dir outputs/your_object \
+    --pc_name your_object \
+    --pc_file your_object.ply \
+    --prompt "A detailed description of your object" \
+    --ddim_steps 50 \
+    --num_viewpoints 40 \
+    --viewpoint_mode predefined \
+    --update_steps 30 \
+    --seed 42
+```
+
+#### Key Parameters
+
+- `--input_dir`: Directory containing your point cloud file
+- `--output_dir`: Where to save the generated results
+- `--pc_name`: Name identifier for your object
+- `--pc_file`: Point cloud filename (supports .ply, .xyz, .npy)
+- `--prompt`: Text description to guide the generation process
+- `--ddim_steps`: Number of diffusion steps (20-50, higher = better quality)
+- `--num_viewpoints`: Number of viewpoints for generation (8-40)
+- `--viewpoint_mode`: `predefined` or `hemisphere` 
+- `--new_strength`: Strength for generating new regions (0.0-1.0)
+- `--update_strength`: Strength for updating existing regions (0.0-1.0) 
+- `--device`: GPU type (`a6000` or `2080` for memory optimization)
+- `--seed`: Random seed for reproducible results
+
+### Output
+
+After successful generation, the main result is `final.ply` which contains the colored Gaussian representation.
+
+### Note
+
+- Ensure your point cloud follows the standard orientation: **Y-axis up**, facing **+Z direction**.
+- For optimal results, you may adjust the predefined viewpoints based on your specific object geometry.
+
+
+
+## Acknowledgements
+
+This project is built upon [2DGS](https://github.com/hbb1/2d-gaussian-splatting), [CAP-UDF](https://github.com/junshengzhou/CAP-UDF) and [Text2Tex](https://github.com/daveredrum/Text2Tex). We thank all the authors for their great repos.
 
 
 
