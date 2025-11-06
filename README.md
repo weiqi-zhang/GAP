@@ -13,7 +13,7 @@
     <a href="https://yushen-liu.github.io/"><strong>Yu-Shen Liu†</strong></a>
 </p>
 <p align="center"><strong>(* Equal Contribution † Corresponding Author)</strong></p>
-<h3 align="center"><a href="https://yushen-liu.github.io/main/pdf/LiuYS_ICCV25_GAP.pdf">Paper</a> | <a href="https://weiqi-zhang.github.io/GAP/">Project Page</a></h3>
+<h3 align="center"><a href="https://arxiv.org/abs/2508.05631">Paper</a> | <a href="https://weiqi-zhang.github.io/GAP/">Project Page</a></h3>
 <div align="center"></div>
 </p>
 <p align="center">
